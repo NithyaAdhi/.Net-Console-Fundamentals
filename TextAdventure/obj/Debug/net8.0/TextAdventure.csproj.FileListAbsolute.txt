@@ -1,0 +1,14 @@
+D:\dotnet\TextAdventure\bin\Debug\net8.0\TextAdventure.exe
+D:\dotnet\TextAdventure\bin\Debug\net8.0\TextAdventure.deps.json
+D:\dotnet\TextAdventure\bin\Debug\net8.0\TextAdventure.runtimeconfig.json
+D:\dotnet\TextAdventure\bin\Debug\net8.0\TextAdventure.dll
+D:\dotnet\TextAdventure\bin\Debug\net8.0\TextAdventure.pdb
+D:\dotnet\TextAdventure\obj\Debug\net8.0\TextAdventure.GeneratedMSBuildEditorConfig.editorconfig
+D:\dotnet\TextAdventure\obj\Debug\net8.0\TextAdventure.AssemblyInfoInputs.cache
+D:\dotnet\TextAdventure\obj\Debug\net8.0\TextAdventure.AssemblyInfo.cs
+D:\dotnet\TextAdventure\obj\Debug\net8.0\TextAdventure.csproj.CoreCompileInputs.cache
+D:\dotnet\TextAdventure\obj\Debug\net8.0\TextAdventure.dll
+D:\dotnet\TextAdventure\obj\Debug\net8.0\refint\TextAdventure.dll
+D:\dotnet\TextAdventure\obj\Debug\net8.0\TextAdventure.pdb
+D:\dotnet\TextAdventure\obj\Debug\net8.0\TextAdventure.genruntimeconfig.cache
+D:\dotnet\TextAdventure\obj\Debug\net8.0\ref\TextAdventure.dll
