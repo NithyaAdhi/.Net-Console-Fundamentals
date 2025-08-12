@@ -1,0 +1,14 @@
+D:\dotnet\NumberGuesser\bin\Debug\net8.0\NumberGuesser.exe
+D:\dotnet\NumberGuesser\bin\Debug\net8.0\NumberGuesser.deps.json
+D:\dotnet\NumberGuesser\bin\Debug\net8.0\NumberGuesser.runtimeconfig.json
+D:\dotnet\NumberGuesser\bin\Debug\net8.0\NumberGuesser.dll
+D:\dotnet\NumberGuesser\bin\Debug\net8.0\NumberGuesser.pdb
+D:\dotnet\NumberGuesser\obj\Debug\net8.0\NumberGuesser.GeneratedMSBuildEditorConfig.editorconfig
+D:\dotnet\NumberGuesser\obj\Debug\net8.0\NumberGuesser.AssemblyInfoInputs.cache
+D:\dotnet\NumberGuesser\obj\Debug\net8.0\NumberGuesser.AssemblyInfo.cs
+D:\dotnet\NumberGuesser\obj\Debug\net8.0\NumberGuesser.csproj.CoreCompileInputs.cache
+D:\dotnet\NumberGuesser\obj\Debug\net8.0\NumberGuesser.dll
+D:\dotnet\NumberGuesser\obj\Debug\net8.0\refint\NumberGuesser.dll
+D:\dotnet\NumberGuesser\obj\Debug\net8.0\NumberGuesser.pdb
+D:\dotnet\NumberGuesser\obj\Debug\net8.0\NumberGuesser.genruntimeconfig.cache
+D:\dotnet\NumberGuesser\obj\Debug\net8.0\ref\NumberGuesser.dll
