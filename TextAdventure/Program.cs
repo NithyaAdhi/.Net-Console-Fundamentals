@@ -46,116 +46,142 @@
             Console.WriteLine("Welcome to the Text Adventure!");
 
             // --- MAIN GAME LOOP ---
-            while (true)
-            {
-                // 1. Display current location
-                Console.WriteLine("\n--------------------");
-                Console.WriteLine("You are in: " + player.CurrentRoom.Name);
-                Console.WriteLine(player.CurrentRoom.Description);
-                if (player.CurrentRoom.ItemsInRoom.Count > 0)
+                while (true)
                 {
-                    Console.WriteLine("You see here: " + string.Join(", ", player.CurrentRoom.ItemsInRoom));
-                }
+                    // 1. Display current location
+                    Console.WriteLine("\n--------------------");
+                    Console.WriteLine("You are in: " + player.CurrentRoom.Name);
+                    Console.WriteLine(player.CurrentRoom.Description);
+                    if (player.CurrentRoom.ItemsInRoom.Count > 0)
+                    {
+                        Console.WriteLine("You see here: " + string.Join(", ", player.CurrentRoom.ItemsInRoom));
+                    }
 
-                // 2. Get user command
-                Console.Write("> ");
-                string command = Console.ReadLine().ToLower().Trim();
+                    // 2. Get user command
+                    Console.Write("> ");
+                    string command = Console.ReadLine().ToLower().Trim();
 
-                // 3. Process the command
-                if (command == "go north")
-                {
-                    if (player.CurrentRoom.North != null)
+                    // 3. Process the command
+                    if (command == "go north")
                     {
-                        player.CurrentRoom = player.CurrentRoom.North;
-                    }
-                    else
-                    {
-                        Console.WriteLine("You can't go that way.");
-                    }
-                }
-                else if (command == "go south")
-                {
-                    if (player.CurrentRoom.South != null)
-                    {
-                        player.CurrentRoom = player.CurrentRoom.South;
-                    }
-                    else
-                    {
-                        Console.WriteLine("You can't go that way.");
-                    }
-                }
-                else if (command == "go east")
-                {
-                    // Locked door logic
-                    if (player.CurrentRoom == darkPassage && !player.Inventory.Contains("a rusty key"))
-                    {
-                        Console.WriteLine("A heavy stone door blocks the way. It seems to have a rusty lock.");
-                    }
-                    else if (player.CurrentRoom.East != null)
-                    {
-                        player.CurrentRoom = player.CurrentRoom.East;
-                    }
-                    else
-                    {
-                        Console.WriteLine("You can't go that way.");
-                    }
-                }
-                else if (command == "go west")
-                {
-                    if (player.CurrentRoom.West != null)
-                    {
-                        player.CurrentRoom = player.CurrentRoom.West;
-                    }
-                    else
-                    {
-                        Console.WriteLine("You can't go that way.");
-                    }
-                }
-                else if (command == "look")
-                {
-                    
-                    continue;
-                }
-                else if (command == "help")
-                {
-                    Console.WriteLine("--- Available Commands ---");
-                    Console.WriteLine("go [north, south, east, west] - Move between rooms.");
-                    Console.WriteLine("look - Look around your current room again.");
-                    Console.WriteLine("inventory - Check your items.");
-                    Console.WriteLine("take [item name] - Pick up an item.");
-                    Console.WriteLine("drop [item name] - Drop an item from your inventory.");
-                    Console.WriteLine("quit / exit - Exit the game.");
-                }
-                else if (command == "inventory")
-                {
-                    if (player.Inventory.Count == 0)
-                    {
-                        Console.WriteLine("Your inventory is empty.");
-                    }
-                    else
-                    {
-                        Console.WriteLine("You are carrying: " + string.Join(", ", player.Inventory));
-                    }
-                }
-                else if (command.StartsWith("take "))
-                {
-                    string itemToTake = command.Substring(5).Trim();
-                    if (player.CurrentRoom.ItemsInRoom.Contains(itemToTake))
-                    {
-                        player.CurrentRoom.ItemsInRoom.Remove(itemToTake);
-                        player.Inventory.Add(itemToTake);
-                        Console.WriteLine("You picked up " + itemToTake + ".");
-
-                        // Win condition
-                        if (itemToTake == "the ancient treasure")
+                        if (player.CurrentRoom.North != null)
                         {
-                            Console.WriteLine("\n\n*** CONGRATULATIONS! YOU HAVE FOUND THE TREASURE AND WON THE GAME! ***");
-                            break;
+                            player.CurrentRoom = player.CurrentRoom.North;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You can't go that way.");
                         }
                     }
+                    else if (command == "go south")
+                    {
+                        if (player.CurrentRoom.South != null)
+                        {
+                            player.CurrentRoom = player.CurrentRoom.South;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You can't go that way.");
+                        }
+                    }
+                    else if (command == "go east")
+                    {
+                        // Locked door logic
+                        if (player.CurrentRoom == darkPassage && !player.Inventory.Contains("a rusty key"))
+                        {
+                            Console.WriteLine("A heavy stone door blocks the way. It seems to have a rusty lock.");
+                        }
+                        else if (player.CurrentRoom.East != null)
+                        {
+                            player.CurrentRoom = player.CurrentRoom.East;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You can't go that way.");
+                        }
+                    }
+                    else if (command == "go west")
+                    {
+                        if (player.CurrentRoom.West != null)
+                        {
+                            player.CurrentRoom = player.CurrentRoom.West;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You can't go that way.");
+                        }
+                    }
+                    else if (command == "look")
+                    {
+                        continue;
+                    }
+                    else if (command == "help")
+                    {
+                        Console.WriteLine("--- Available Commands ---");
+                        Console.WriteLine("go [north, south, east, west] - Move between rooms.");
+                        Console.WriteLine("look - Look around your current room again.");
+                        Console.WriteLine("inventory - Check your items.");
+                        Console.WriteLine("take [item name] - Pick up an item.");
+                        Console.WriteLine("drop [item name] - Drop an item from your inventory.");
+                        Console.WriteLine("quit / exit - Exit the game.");
+                    }
+                    else if (command == "inventory")
+                    {
+                        if (player.Inventory.Count == 0)
+                        {
+                            Console.WriteLine("Your inventory is empty.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("You are carrying: " + string.Join(", ", player.Inventory));
+                        }
+                    }
+                    else if (command.StartsWith("take "))
+                    {
+                        string itemToSearchFor = command.Substring(5).Trim();
+
+                        string itemFound = player.CurrentRoom.ItemsInRoom
+                                            .FirstOrDefault(item => item.Contains(itemToSearchFor));
+
+                        if (itemFound != null)
+                        {
+                            player.CurrentRoom.ItemsInRoom.Remove(itemFound);
+                            player.Inventory.Add(itemFound);
+                            Console.WriteLine("You picked up " + itemFound + ".");
+
+                            if (itemFound == "the ancient treasure")
+                            {
+                                Console.WriteLine("\n\n*** CONGRATULATIONS! YOU HAVE FOUND THE TREASURE AND WON THE GAME! ***");
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("There is no '" + itemToSearchFor + "' here.");
+                        }
+                    } 
+                    else if (command.StartsWith("drop "))
+                    {
+                        string itemToDrop = command.Substring(5).Trim();
+                        if (player.Inventory.Contains(itemToDrop))
+                        {
+                            player.Inventory.Remove(itemToDrop);
+                            player.CurrentRoom.ItemsInRoom.Add(itemToDrop);
+                            Console.WriteLine("You dropped " + itemToDrop + ".");
+                        }
+                        else
+                        {
+                            Console.WriteLine("You are not carrying '" + itemToDrop + "'.");
+                        }
+                    }
+                    else if (command == "quit" || command == "exit")
+                    {
+                        Console.WriteLine("Thanks for playing!");
+                        break;
+                    }
                     else
                     {
-                        Console.WriteLine("There is no '" + itemToTake + "' here.");
+                        Console.WriteLine("I don't understand that command.");
                     }
                 }
                 else if (command.StartsWith("drop "))
